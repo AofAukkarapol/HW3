@@ -4,15 +4,15 @@ class Program
 {
     static void Main()
     {
-        char choice;
+        string choice;
 
         do
         {
             Console.WriteLine("Choose operation:");
 
-            choice = char.Parse(Console.ReadLine());
+            choice = Console.ReadLine();
 
-            if (choice == '+' || choice == '-')
+            if (choice == "+" || choice == "-")
             {
                 Console.Write("Enter the number of rows for the matrices: ");
                 int rows = Convert.ToInt32(Console.ReadLine());
@@ -26,14 +26,14 @@ class Program
                 // Create the second matrix
                 float[,] matrix2 = CreateMatrix(rows, columns);
 
-                if (choice == '+')
+                if (choice == "+")
                 {
                     // Perform matrix addition
                     float[,] sumMatrix = AddMatrices(matrix1, matrix2);
                     Console.WriteLine("Sum of matrices:");
                     PrintMatrix(sumMatrix);
                 }
-                else if (choice == '-')
+                else if (choice == "-")
                 {
                     // Perform matrix subtraction
                     float[,] diffMatrix = SubtractMatrices(matrix1, matrix2);
@@ -46,7 +46,7 @@ class Program
                 Console.WriteLine("Exiting program.");
             }
 
-        } while (choice == '+' || choice == '-');
+        } while (choice == "+" || choice == "-");
     }
 
     static float[,] CreateMatrix(int rows, int columns)
@@ -108,7 +108,7 @@ class Program
         {
             for (int j = 0; j < columns; j++)
             {
-                Console.Write(matrix[i, j] + "\t");
+                Console.Write("{0:N1} \t",matrix[i, j]);
             }
 
             Console.WriteLine();
